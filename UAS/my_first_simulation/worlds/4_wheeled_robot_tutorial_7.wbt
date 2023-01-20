@@ -1,0 +1,303 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "C:/Users/mbint/OneDrive/Dokumen/KULIAH/SEMESTER 7/Robotik/UAS/my_first_simulation/protos/FourWheelsRobot.proto"
+
+WorldInfo {
+  basicTimeStep 64
+}
+Viewpoint {
+  orientation -0.11388937976189298 -0.01490063185794841 0.9933816891546196 3.400105242688375
+  position 2.4070094744466815 0.8473777111902234 0.9894753685007911
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+PointLight {
+  attenuation 0 0 1
+  location 0 0.3 0
+}
+DirectionalLight {
+  direction 0 -1 0
+}
+Floor {
+  size 1 1
+}
+Solid {
+  translation 0.509161 -0.006244990000000083 0.04961794211598466
+  rotation -9.784245421503024e-17 -2.792395257104387e-17 -1 1.57079
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.5 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF wall_geometry Box {
+        size 1.1 0.05 0.1
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE wall_geometry
+}
+Solid {
+  translation -0.016715889676050706 0.5264338481998548 0.049617942115984665
+  rotation 1.0663624556617437e-17 9.915398275452107e-17 1 -3.1285127552604854
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.5 1
+        roughness 1
+        metalness 0
+      }
+      geometry DEF wall_geometry Box {
+        size 1.1 0.05 0.1
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE wall_geometry
+}
+Solid {
+  translation -0.523004 -0.022743599999999965 0.04961794211598466
+  rotation 2.244613544901299e-16 -1.2853806088582194e-16 -1 1.57079
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.5 1
+        roughness 1
+        metalness 0
+      }
+      geometry DEF wall_geometry Box {
+        size 1.1 0.05 0.1
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE wall_geometry
+}
+Solid {
+  translation -0.006238993759171931 -0.5230569505967493 0.04961794211598466
+  rotation -6.751951642358523e-17 -6.804052531606531e-17 0.9999999999999999 -3.1350399998857754
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.5 1
+        roughness 1
+        metalness 0
+      }
+      geometry DEF wall_geometry Box {
+        size 1.07 0.05 0.1
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE wall_geometry
+}
+Robot {
+  translation 0.00762074 0.210444 0.0394375
+  rotation 0.10016101006372806 -0.4955620497918472 -0.862778086688064 0.0163568
+  children [
+    DistanceSensor {
+      translation 0.1 0.02 0
+      rotation 0 0 1 -1.27
+      children [
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject USE Sensor
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation 0.1 -0.02 0
+      rotation 0 0 1 -1.87
+      children [
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE Sensor
+      physics Physics {
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 77.5669577874527
+        axis 0 1 0
+        anchor 0.05 0.06 0
+      }
+      device [
+        DEF wheel1 RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 0.06 0
+        rotation 0.35024133267160723 0.662317063902055 -0.6623194967329423 2.467815347650932
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+              roughness 1
+              metalness 0
+            }
+            geometry DEF Wheel_Geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE Wheel_Geometry
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 39.168966327057056
+        axis 0 1 0
+        anchor 0.05 -0.06 -4.40784e-07
+      }
+      device [
+        DEF wheel_2 RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 -0.06 -4.40784e-07
+        rotation 0.616179990321193 0.5569200754852677 -0.5569221211706878 2.037132573422723
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE Wheel_Geometry
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 77.56697313781083
+        axis 0 1 0
+        anchor -0.05 0.06 2.51033e-13
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 0.06 2.51033e-13
+        rotation 0.35023562568101535 0.6623185728455772 -0.6623210056820071 2.4678255144666466
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE Wheel_Geometry
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 39.168986222294336
+        axis 0 1 0
+        anchor -0.05 -0.06 -4.40784e-07
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 -0.06 -4.40784e-07
+        rotation 0.6161723468513884 0.5569243038197876 -0.5569263495207398 2.0371436535218335
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE Wheel_Geometry
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BODY_GEOMETRY Box {
+        size 0.2 0.1 0.05
+      }
+    }
+  ]
+  boundingObject USE BODY_GEOMETRY
+  physics Physics {
+  }
+  controller "four_wheeled_collision_avoidance"
+}
+FourWheelsRobot {
+  hidden translation_3 0.05 0.06 0
+  hidden rotation_3 -0.7934885739361175 0.4303338951129942 -0.430335475820557 4.483104936934577
+  hidden translation_4 0.05 -0.06 1.22354e-07
+  hidden rotation_4 -0.7086405688830895 0.49891335184003577 -0.498912829549203 4.374596592163087
+  hidden translation_5 -0.05 0.06000000000000005 4.68944e-14
+  hidden rotation_5 -0.7934877436263557 0.43033567796276456 -0.43033522396741214 4.483108477793227
+  hidden translation_6 -0.05 -0.06000000000000005 1.22354e-07
+  hidden rotation_6 -0.7086417820352976 0.49891249027637713 -0.4989119679863993 4.374598207360801
+  translation 4.784314993859718e-06 -3.9572056028930215e-08 0.0393662564881658
+  rotation 0.03484961547943665 0.9993925675928851 -1.1875876543937032e-05 2.83881467633791e-05
+}

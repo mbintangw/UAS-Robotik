@@ -1,0 +1,24 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.23444671781323898 0.0012905799617856986 -0.9721281144530087 3.1308779724889786
+  position 20.74281988474104 0.1923070320932021 10.04751045247868
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 10
+}
+DEF BB-8 BB-8 {
+  translation 0 0 -0.04154809489298973
+  rotation 0 1 0 0
+  controller ""
+}
+Robot {
+  name "supervisor"
+  controller "supervisor_controller"
+  supervisor TRUE
+}
